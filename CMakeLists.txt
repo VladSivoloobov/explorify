@@ -32,7 +32,7 @@ add_executable (
 	explorify.cpp
 	src/presentation/views/windows/window.h
 	src/presentation/views/windows/window.cpp
-)
+ "constants.h" "src/presentation/views/windows/overview_window.cpp" "src/presentation/views/widgets/Sidebar.cpp" "src/presentation/views/widgets/Sidebar.h" "src/presentation/views/widgets/SidebarPage.h")
 
 target_link_libraries(explorify PRIVATE PkgConfig::GTKMM)
 

@@ -6,7 +6,9 @@ namespace views {
 	namespace windows {
 		class Window : public Gtk::Window {
 		public:
-			Window(const std::string title);
+			Window(const std::string& title);
+
+			~Window() = default;
 		};
 	}
 }
