@@ -3,9 +3,19 @@
 #include <iostream>
 #include "src/presentation/views/windows/window.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-	views::windows::Window window("Test window");
+	auto app = Gtk::Application::create("com.vladsivolobov.explorify");
+	
+	static std::shared_ptr<views::windows::Window>window;
 
-	window.show();
+	return 
+		app->signal_activate()
+		.connect([app]() {
+			if (!window) {
+				window = std::make_shared<views::windows::Window>("Test");
+				window->show();
+				app->add_window(*window);
+			}
+		}), app->run();
 }

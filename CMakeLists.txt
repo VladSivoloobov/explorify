@@ -22,6 +22,9 @@ find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(GTKMM REQUIRED IMPORTED_TARGET gtkmm-4.0)
 
+link_directories(${GTKMM_LIBRARY_DIRS})
+link_directories(${GTKMM_INCLUDE_DIRS})
+
 # Добавьте источник в исполняемый файл этого проекта.
 
 add_executable (
