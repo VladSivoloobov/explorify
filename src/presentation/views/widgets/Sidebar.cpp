@@ -1,19 +1,34 @@
 #include "Sidebar.h"
+#include <unordered_map>
+#include <vector>
+#include <iostream>
 
 using namespace views::widgets;
 
 Sidebar::Sidebar() : Gtk::StackSidebar(){
-	Gtk::Stack stack;
+	std::vector<SidebarParams> pages {
+		{
+			"Page 1", "page_1", "Page 1",
+		},
+		{
+			"Page 2", "page_2", "Page 2",
+		},
+		{
+			"Page 3", "page_3", "Page 3"
+		}
+	};
 
-	create_page("Избранное", "favor", *stack);
+	for (auto& page : pages) {
+		create_page(page);
+
+		std::cout << page.page_title << std::endl;
+	}
+
+	set_stack(stack);
 };
 
-void Sidebar::create_page(
-	const std::string page_title,
-	const std::string page_id,
-	Gtk::Stack* stack
-) {
-	Gtk::Label label(page_title);
+void Sidebar::create_page(const SidebarParams params) {
+	auto* label = Gtk::make_managed<Gtk::Label>(params.page_name);
 
-	stack->add(label, page_id, page_title);
+	stack.add(*label, params.page_id, params.page_title);
 }

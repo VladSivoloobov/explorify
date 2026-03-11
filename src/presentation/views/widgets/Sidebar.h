@@ -1,6 +1,6 @@
 #include <gtkmm.h>
 #include <string>
-#include "SidebarPage.h"
+#include "SidebarParams.h"
 
 namespace views {
 	namespace widgets {
@@ -8,11 +8,8 @@ namespace views {
 		public:
 			Sidebar();
 		private:
-			void create_page(
-				const std::string page_title,
-				const std::string page_id,
-				Gtk::Stack* stack
-			);
+			void create_page(const SidebarParams params);
+			Gtk::Stack stack;
 		};
 	}
 }
