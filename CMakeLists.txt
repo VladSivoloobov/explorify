@@ -30,9 +30,18 @@ link_directories(${GTKMM_INCLUDE_DIRS})
 add_executable (
 	explorify
 	explorify.cpp
-	src/presentation/views/windows/window.h
-	src/presentation/views/windows/window.cpp
- "constants.h" "src/presentation/views/windows/overview_window.cpp" "src/presentation/views/widgets/Sidebar.cpp" "src/presentation/views/widgets/Sidebar.h" "src/presentation/views/widgets/SidebarParams.h")
+	"presentation/views/windows/base_window/window.cpp"
+	"constants.h" 
+	"presentation/views/windows/overview_window/overview_window.cpp" 
+	"presentation/views/widgets/sidebar/Sidebar.cpp" 
+	"presentation/views/widgets/sidebar/Sidebar.h" 
+	"presentation/views/widgets/sidebar/SidebarParams.h" 
+	"presentation/views/widgets/file_button/file_button.h" 
+	"presentation/views/widgets/file_button/file_button.cpp"
+)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/theme DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/styles DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(explorify PRIVATE PkgConfig::GTKMM)
 
