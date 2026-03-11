@@ -1,3 +1,9 @@
-* {
-    background: black;
+*, *:active, *:hover {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    color: black;
+    background: transparent;
 }
+

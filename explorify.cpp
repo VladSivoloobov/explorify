@@ -37,7 +37,11 @@ static void load_css() {
 
 	std::string css_path = std::filesystem::current_path().string() + "/styles/styles.css";
 
-	css_provider->load_from_resource(css_path);
+	css_provider->load_from_path(css_path);
 
-	Gtk::StyleContext::add_provider_for_display(Gdk::Display::get_default(), css_provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	Gtk::StyleContext::add_provider_for_display(
+		Gdk::Display::get_default(),
+		css_provider,
+		GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+	);
 }
