@@ -231,8 +231,6 @@ cmake --build out/build/x64-debug --config Debug
 3. Внеси изменения + добавь тесты (если возможно)
 4. Открой Pull Request с описанием
 
-> 📌 **Совет**: Перед началом работы открой [Discussions](https://github.com/VladSivoloobov/explorify/discussions) — обсудим идею и избежим дублирования.
-
 ---
 
 ## 📄 Лицензия
